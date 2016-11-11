@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ant build file for Braids-Java-Utilities -->
+	
+<project name="BJU.makeJar" default="makeJar" basedir=".">
+  <target name="makeJar" 
+   description="Create a jar file for Braids-Java-Utilities">
+
+  	<mkdir dir="build.tmp"/>
+  	
+  	<!-- Create the manifest. -->
+	<manifest file="build.tmp/MANIFEST.MF">
+		<!--
+	  <attribute name="Main-Class" 
+	   value="braids.game.ixos.console.TextView"/>
+	   -->
+		
+	  <!--
+	  <attribute name="Class-Path" 
+	   value="1.jar 2.jar"/>
+	   -->
+		
+	</manifest>
+
+  	
+  	<!-- Create the jar of all the class files. -->
+    <jar jarfile="build.tmp/Braids-Java-Utilities.jar" 
+     manifest="build.tmp/MANIFEST.MF">
+      <fileset dir="bin"/>
+    	
+      <!--
+      <fileset dir="." includes="res/" />
+      -->
+    </jar>
+
+  	
+  </target>
+</project>
+
