@@ -1,6 +1,6 @@
-package braids.util.python.port;
+package cc.braids.util.python.port;
 
-import static braids.util.UFunctions.*;
+import static cc.braids.util.UFunctions.*;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
@@ -10,9 +10,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import braids.util.HasReprMethod;
-import braids.util.NYIException;
-import braids.util.junit.BTestCase;
+import cc.braids.util.HasReprMethod;
+import cc.braids.util.NYIException;
+import cc.braids.util.junit.BTestCase;
 
 /**
  * JUnit test for Functions.repr.

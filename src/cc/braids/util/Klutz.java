@@ -1,4 +1,4 @@
-package braids.util;
+package cc.braids.util;
 
 /**
  * A Klutz is like a Runnable, but is far more error-prone; its run method

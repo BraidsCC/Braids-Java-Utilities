@@ -1,4 +1,4 @@
-package braids.util;
+package cc.braids.util;
 
 public class ImmutableNamedThingImpl implements ImmutableNamedThing {
 
@@ -7,7 +7,7 @@ public class ImmutableNamedThingImpl implements ImmutableNamedThing {
     }
 
     /* (non-Javadoc)
-	 * @see braids.util.ImmutableNamedThing#getName()
+	 * @see cc.braids.util.ImmutableNamedThing#getName()
 	 */
     @Override
 	public String getName() {
