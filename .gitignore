@@ -16,5 +16,5 @@ hs_err_pid*
 
 # Build output directories
 bin/
-build.tmp/
+*.tmp/
 
