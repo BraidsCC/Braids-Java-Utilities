@@ -1,4 +1,4 @@
-package braids.util;
+package cc.braids.util;
 
 public class NamedThingImpl implements NamedThing {
     public NamedThingImpl() {
@@ -10,7 +10,7 @@ public class NamedThingImpl implements NamedThing {
     }
 
     /* (non-Javadoc)
-	 * @see braids.util.NamedThing#setName(java.lang.String)
+	 * @see cc.braids.util.NamedThing#setName(java.lang.String)
 	 */
     @Override
 	public void setName(String name) {
@@ -18,7 +18,7 @@ public class NamedThingImpl implements NamedThing {
     }
         
     /* (non-Javadoc)
-	 * @see braids.util.NamedThing#getName()
+	 * @see cc.braids.util.NamedThing#getName()
 	 */
     @Override
 	public String getName() {

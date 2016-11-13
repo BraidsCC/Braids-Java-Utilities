@@ -1,4 +1,4 @@
-package braids.util;
+package cc.braids.util;
 
 /**
  * This exception indicates that a portion of code has not yet been

@@ -1,12 +1,12 @@
-package braids.util.junit;
+package cc.braids.util.junit;
 
-import static braids.util.UFunctions.*;
+import static cc.braids.util.UFunctions.*;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Supplier;
 
-import braids.util.UFunctions;
+import cc.braids.util.UFunctions;
 import junit.framework.TestCase;
 
 public class BTestCase extends TestCase {

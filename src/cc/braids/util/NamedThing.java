@@ -1,4 +1,4 @@
-package braids.util;
+package cc.braids.util;
 
 public interface NamedThing {
 

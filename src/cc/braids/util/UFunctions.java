@@ -1,10 +1,10 @@
-package braids.util;
+package cc.braids.util;
 
-import static braids.util.python.port.PyFunctions.*;
+import static cc.braids.util.python.port.PyFunctions.*;
 
 import java.util.*;
 
-import braids.util.python.port.SetFrom;
+import cc.braids.util.python.port.SetFrom;
 
 /**
  * This class defines some useful static functions that are too specialized
