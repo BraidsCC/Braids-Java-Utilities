@@ -4,12 +4,5 @@ Herein lie miscellaneous Java utilities, including some handy bits for porting P
 
 ## Developer instructions
 
-To make a jar file, run:
+To build everything, run gradle or, if you don't want to install Gradle, run gradlew.  The resulting jar file goes into the repos/ directory, and the javadocs go into build/docs/javadoc/.
 
-gradle build uploadArchives
-
-If you don't want to install Gradle, that's fine; you can use gradlew instead.  From the some directory as this README:
-
-./gradlew build uploadArchives
-
-Gradle places the result in the repos/ directory. 
