@@ -52,9 +52,16 @@ public abstract class PyFunctions {
 	 * For classes that define their own equals methods, be sure to use this
 	 * annotation on the methods' signatures:
 	 * 
-	 * @Override public boolean equals(Object obj)
+	 * <pre>
+	 *   <code>
+	 *    {@literal @}Override 
+	 *     public boolean equals(Object obj)
+	 *   </code>
+	 * </pre>
 	 * 
 	 * This is easy to forget.
+	 * 
+	 * @param <T> the type for needle and for haystack's elements
 	 * 
 	 * @param needle
 	 *            the object to find
@@ -71,10 +78,11 @@ public abstract class PyFunctions {
 	/**
 	 * Compute the intersection of two Set instances.
 	 * 
+	 * @param <T> types for the elements in the sets
 	 * @param ocean  a set
 	 * @param sand  a set
 	 * 
-	 * @return a new Set<T> which contains shallowly-copied items from ocean 
+	 * @return a new Set which contains shallowly-copied items from ocean 
 	 * and/or sand; this may be empty, but shall never be null
 	 */
 	public static <T> Set<T> intersection(Set<T> ocean, Set<T> sand) {
@@ -105,6 +113,7 @@ public abstract class PyFunctions {
 	 * Create a new set which represents the items that are present in ALL the 
 	 * given sets.
 	 * 
+	 * @param <T> types for the elements in the sets
 	 * @param sets  an array of sets (varargs style)
 	 * @return  a new set that has only the items present in every single element of sets
 	 */
@@ -169,6 +178,8 @@ public abstract class PyFunctions {
 	/**
 	 * Create a new list by applying the function to each item of the input list.
 	 * 
+	 * @param <T> argument type for f and the types for elements of ls
+	 * @param <R> return type for f and the types return by iterating over the result
 	 * @param f  the function to apply
 	 * @param ls  the input list
 	 * @return  a "list" in Iterable form
@@ -191,8 +202,16 @@ public abstract class PyFunctions {
 	 * list and then casting the result to a (possibly) different type.
 	 * 
 	 * @param f  the function to apply
+	 * 
 	 * @param ls  the input list
+	 * 
 	 * @param cast  the class to which we cast each item in the result
+	 * 
+	 * @param <T> the type f accepts, also the type of the elements in ls
+	 * 
+	 * @param <R> f's return type; must be able to cast to &lt;C&gt;
+	 * 
+	 * @param <C> the type of the elements produced by the result's iterator
 	 * 
 	 * @return  a "list" in Iterable form
 	 */
@@ -255,6 +274,7 @@ public abstract class PyFunctions {
 	/**
 	 * Subtract one Set from another.
 	 * 
+	 * @param <T> the types of the sets' elements
 	 * @param minuend the (usually larger) set to subtract from
 	 * @param subtrahend  the set of items to omit from the result
 	 * 

@@ -161,8 +161,13 @@ public abstract class UFunctions {
 	 * Provides helpful information if two maps (dictionaries) are not
 	 * identical.
 	 * 
+	 * @param <K>  type for the maps' keys (assumed the same for both)
+	 * 
+	 * @param <V>  type for the maps' values (assumed the same for both)
+	 * 
 	 * @param expd
 	 *            the expected or "better" dictionary
+	 *            
 	 * @param actd
 	 *            the actual or "inferior" dictionary
 	 *
@@ -244,6 +249,7 @@ public abstract class UFunctions {
 	/**
 	 * Two-parameter convenience method.
 	 * 
+	 * {@inheritDoc}
 	 * @see #diff(List, List, String)
 	 */
 	public static <T> List<String> diff(List<T> firstList, List<T> secondList) {
@@ -252,6 +258,8 @@ public abstract class UFunctions {
 
     /**
 	 * Provides helpful information if the two lists are not identical.
+	 * 
+	 * @param <T>  type for the lists' contents; must be same for both lists.
 	 * 
 	 * @param firstList
 	 *            is usually consider the "better" or "expected" one

@@ -9,12 +9,14 @@ package cc.braids.util;
  * of identifying this object, e.g., for a debugger.  It may return
  * a complete constructor call.  For example:
  * 
- * 
- * @Override
- * public String __repr__() {
- *     return "ClassName(" + repr(field1) + "," + repr(field2) + ")";
- * } 
- * 
+ * <pre>
+ *   <code>
+ *    {@literal @}Override
+ *     public String __repr__() {
+ *         return "ClassName(" + repr(field1) + "," + repr(field2) + ")";
+ *     } 
+ *   </code>
+ * </pre>
  * 
  * Omit the new operator.
  */

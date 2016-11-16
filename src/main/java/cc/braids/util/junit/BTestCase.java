@@ -12,19 +12,22 @@ import junit.framework.TestCase;
 public class BTestCase extends TestCase {
 
     /**
-    Make sure that the given thunk (function) raises an exception of
-    type exType (or a subtype thereof).
-    
-    exType - a type object; e.g. ClassCastException
-    
-    thunk - a method that takes no arguments
-    
-    Returns nothing.
-     * @param <T>
+    * Make sure that the given thunk (function) raises an exception of
+    * type exType (or a subtype thereof).
+    * 
+    * @param <RT> the return type of thunk
+    * 
+    * @param <CT> the class type of the exception
+    * 
+    * @param exType a type object; e.g. ClassCastException
+    * 
+    * @param thunk a method that takes no arguments
+    * 
+    * @param messagePrefix  the string to add to the beginning of the error message, if any
     */
     public <RT,CT> void assertException(Class<CT> exType,
     		Supplier<RT> thunk, 
-    		String message /* = "" */)
+    		String messagePrefix)
     {
     	RT actual;
     	
@@ -34,7 +37,8 @@ public class BTestCase extends TestCase {
         catch (Exception exn) {
 
         	if (!exType.isAssignableFrom(exn.getClass())) {
-        		fail("I expected an exception with (super)type " + 
+        		fail(messagePrefix + 
+        				"expected an exception with (super)type " + 
         				exType.getName() + ", but I got one of " +
         				exn.getClass().getName() + " instead.");
         	}
@@ -80,7 +84,10 @@ public class BTestCase extends TestCase {
      * if they do not pass equals.
      * 
      * @param expSeq  the expected sequence
+     * 
      * @param actSeq  the actual sequence
+     * 
+     * @param <T> the types of the lists' elements
      */
     public <T> void assertEquals(List<T> expSeq, List<T> actSeq) {
         combineMessagesAndFailIfNonEmpty(UFunctions.diff(expSeq, actSeq));        
@@ -99,10 +106,10 @@ public class BTestCase extends TestCase {
      * Same as calling failUnlessIn("", object, collection).
      * 
      * @see #failUnlessIn(String, Object, Collection)
-     */
     public <T> void failUnlessIn(T needle, Collection<T> haystack) {
     	failUnlessIn("", needle, haystack);
     }
+     */
     
 	/**
 	 * Emit a failure unless needle is in haystack.
@@ -110,10 +117,15 @@ public class BTestCase extends TestCase {
 	 * For classes that define their own equals methods, be sure to use this
 	 * annotation on the methods' signatures:
 	 * 
-	 * @Override public boolean equals(Object obj)
 	 * 
-	 *           This is easy to forget.
+	 * <pre>
+	 *   <code>
+	 *    {@literal @}Override
+	 *     public boolean equals(Object obj)
+	 *   </code>
+	 * </pre>
 	 * 
+     * @param <T> the types of the elements in haystack
 	 * @param prefix
 	 *            If there is a failure, add this prefix to the failure message.
 	 * @param needle
@@ -127,7 +139,7 @@ public class BTestCase extends TestCase {
             return;
         }
 
-        /* I was desperate because I had forgotten to add @Override 
+        /* I was desperate because I had forgotten to add at-Override 
          * annotations to my equals methods.  Ignore this...
          * 
          * commented out
@@ -147,11 +159,21 @@ public class BTestCase extends TestCase {
 	 * For classes that define their own equals methods, be sure to use this
 	 * annotation on the methods' signatures:
      * 
-     * @Override public boolean equals(Object obj)
+     * <pre>
+     *   <code>
+     *    {@literal @}Override
+     *     public boolean equals(Object obj)
+     *   </code>
+     * </pre>
      * 
      * This is easy to forget.
      * 
+     * @param <T> the types of the elements in chinaShop
+     * 
+     * @param messagePrefix prepended to the failure message, if any
+     * 
      * @param bull  must not be in chinaShop
+     * 
      * @param chinaShop  must not contain bull
      */
     public <T> void failIfIn(String messagePrefix, T bull, Collection<T> chinaShop) {
@@ -161,15 +183,6 @@ public class BTestCase extends TestCase {
         
         fail(String.format("%s%s is in %s", messagePrefix, repr((T) bull), 
         		repr((Collection<T>) chinaShop)));
-    }
-
-    /**
-     * Same as failIfIn("", bull, chinaShop).
-     * 
-     * @see #failIfIn(String, Object, Collection)
-     */
-    public <T> void failIfIn(T bull, Collection<T> chinaShop) {
-    	failIfIn("", bull, chinaShop);
     }
 
     

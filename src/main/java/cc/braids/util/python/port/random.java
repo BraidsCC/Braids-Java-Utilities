@@ -12,6 +12,8 @@ public abstract class random {
 	/**
 	 * Choose a pseudo-random item from a list.
 	 * 
+	 * @param <T> the types of ls' elements
+	 * 
 	 * @param ls  the list from which to choose
 	 * 
 	 * @return  one of the elements of ls at random

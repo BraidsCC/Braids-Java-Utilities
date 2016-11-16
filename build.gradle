@@ -1,26 +1,13 @@
 // build file for Braids-Java-Utilities
 version = '0.1.1-SNAPSHOT'
 
+defaultTasks 'test', 'zipDocs', 'uploadArchives'
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 sourceCompatibility = 1.8
 
 apply plugin: 'eclipse'
-
-
-// Get IzPack plugin
-// @TODO: we don't need IzPack; IxOS does.  X'D
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.bmuschko:gradle-izpack-plugin:2.1'
-    }
-}
-apply plugin: 'com.bmuschko.izpack'
-
 
 
 // In this section you declare where to find the dependencies of your project
@@ -33,23 +20,25 @@ repositories {
 dependencies {
     compile group: 'junit', name: 'junit', version: '4.+'
 
-	//izpack 'org.codehaus.izpack:izpack-standalone-compiler:4.3.4'
-	izpack group: 'org.codehaus.izpack', name: 'izpack-standalone-compiler', version:'4+'
-    
     runtime files()  // In other words, not JUnit ???
 }
 
-jar { }
+task zipDocs (type:Zip, dependsOn: javadoc) {
+	def docBaseName = project.name + '-docs'
+	baseName = docBaseName
+	from fileTree('build/docs') {
+	    into docBaseName + '-' + project.version
+	}
+}
 
 
 // Publish the jar file to a local directory.
 uploadArchives {
-    repositories {
-       flatDir {
-           dirs 'repos'
-       }
-    }
+	//  Doesn't actually upload archives anywhere
+	repositories {
+
+		flatDir {
+			dirs 'repos'
+		}
+	}
 }
-
-// @TODO add task to make the doc file
-
